@@ -1,24 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import ScrollToTop from './components/ScrollToTop/Index'
+import PrivateRoute from './components/PrivateRoute/Index'
+
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
+import Reset from './pages/auth/Reset';
+
+import UserMaster from './pages/user/Master';
+import AdminMaster from './pages/admin/Master';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <ScrollToTop>
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/reset" component={Reset} />
+
+            <PrivateRoute>
+              <Route path="/home" component={UserMaster} />
+              <Route path="/admin" component={AdminMaster} />
+            </PrivateRoute>
+
+
+
+          </Switch>
+        </ScrollToTop>
+      </Router>
     </div>
   );
 }

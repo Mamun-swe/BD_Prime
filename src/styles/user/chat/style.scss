@@ -1,0 +1,17 @@
+@import "../../../App.scss";
+
+.links-tab {
+    a {
+        color: rgb(119, 118, 118);
+        display: block;
+        font-size: 14px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .is-Active {
+        color: #000;
+    }
+}
