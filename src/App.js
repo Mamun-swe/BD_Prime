@@ -28,8 +28,6 @@ function App() {
               <Route path="/admin" component={AdminMaster} />
             </PrivateRoute>
 
-
-
           </Switch>
         </ScrollToTop>
       </Router>

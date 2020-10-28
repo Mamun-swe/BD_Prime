@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../../../styles/user/chat/style.scss'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
@@ -16,6 +16,7 @@ const MessageRoom = () => {
     const { register, handleSubmit, errors } = useForm()
     const [isLoading, setLoading] = useState(true)
     const [messages, setMessages] = useState([])
+
 
     useEffect(() => {
         // Fetch Messages
@@ -56,7 +57,7 @@ const MessageRoom = () => {
                         {messages && messages.length > 0 ?
                             messages.map((message, i) =>
 
-                                <div className="message" key={i}>
+                                <div className="message" key={i} id="message">
                                     <div className="d-flex">
 
                                         {/* Sender */}

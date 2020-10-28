@@ -10,9 +10,8 @@ const Login = () => {
     const { register, handleSubmit, errors } = useForm()
 
     const onSubmit = async (data) => {
-        console.log(data)
         localStorage.setItem('token', data.email)
-        history.push('/home')
+        history.push('/admin')
     }
 
     return (
